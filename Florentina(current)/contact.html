@@ -147,7 +147,90 @@
         });
       }
     </script>
+
+    <!-- contact form with js -->
+<script>
+  function validateForm(event) {
+      event.preventDefault(); 
+  
+      const name = document.querySelector("input[placeholder='Name']").value.trim();
+      const email = document.querySelector("input[placeholder='Email']").value.trim();
+      const number = document.querySelector("input[placeholder='Number']").value.trim();
+      const message = document.querySelector("textarea[placeholder='Message']").value.trim();
+  
+      let isValid = true;
+  
+      if (name === "") {
+          displayError("Name is required.", "input[placeholder='Name']");
+          isValid = false;
+      } else {
+          removeError("input[placeholder='Name']");
+      }
+  
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (email === "") {
+          displayError("Email is required.", "input[placeholder='Email']");
+          isValid = false;
+      } else if (!email.match(emailPattern)) {
+          displayError("Please enter a valid email address.", "input[placeholder='Email']");
+          isValid = false;
+      } else {
+          removeError("input[placeholder='Email']");
+      }
+  
+      const numberPattern = /^[0-9]{10,}$/; 
+      if (number === "") {
+          displayError("Phone number is required.", "input[placeholder='Number']");
+          isValid = false;
+      } else if (!number.match(numberPattern)) {
+          displayError("Please enter a valid phone number (only digits).", "input[placeholder='Number']");
+          isValid = false;
+      } else {
+          removeError("input[placeholder='Number']");
+      }
+  
+      if (message === "") {
+          displayError("Message is required.", "textarea[placeholder='Message']");
+          isValid = false;
+      } else {
+          removeError("textarea[placeholder='Message']");
+      }
+  
+      if (isValid) {
+          alert("Form submitted successfully!");
+      }
+  }
+  
+  function displayError(message, elementSelector) {
+      const element = document.querySelector(elementSelector);
+      let errorElement = element.nextElementSibling;
+  
+      if (!errorElement || !errorElement.classList.contains("error-message")) {
+          errorElement = document.createElement("span");
+          errorElement.classList.add("error-message");
+          errorElement.style.color = "red";
+          element.parentNode.insertBefore(errorElement, element.nextSibling);
+      }
+      
+      errorElement.textContent = message;
+  }
+  
+  function removeError(elementSelector) {
+      const element = document.querySelector(elementSelector);
+      let errorElement = element.nextElementSibling;
+  
+      if (errorElement && errorElement.classList.contains("error-message")) {
+          errorElement.remove();
+      }
+  }
+  
+  document.querySelector(".btn.btn-primary").addEventListener("click", validateForm);
+ </script>
+ <!-- contact form with js -->
+ 
     </section>
+
+
 
 
 
@@ -218,7 +301,7 @@ setInterval(updateDateTime, 1000);  // 1000 мс = 1 секунда
 
       </script>
         <div class="credit">created by <span> Danel Kanbakova, Darina Kassymbek, Akniyet Muratbekkyzy</span></div>
-
+ 
     </section>
     <!-- footer section ends -->
 </body>

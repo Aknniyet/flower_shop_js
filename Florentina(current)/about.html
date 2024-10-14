@@ -69,21 +69,63 @@
           <div class="image-container">
             <img src="images/about1.jpg">
 
-        </div>
-        <div class="aboutContent">
-            <h3> why choose us?</h3>
-            <p>Welcome to Florentina, your premier destination for exquisite flower bouquets. 
-                At Florentina, we are passionate about creating beautiful arrangements for every occasion. 
-                Whether you're celebrating a special event or just want to brighten someone's day, 
-                we have a bouquet to suit your needs.</p>
-            <p>Our dedicated team of floral designers uses only the freshest flowers to craft stunning 
-                arrangements that capture the essence of elegance and joy. We pride ourselves on exceptional customer 
-                service and attention to detail, ensuring that each bouquet is a true work of art.</p>
-            <p>Thank you for choosing Florentina. We look forward to serving you and helping you 
-                celebrate life's moments with the beauty of flowers!</p>
-                 <!-- Bootstrap button for 'Learn More' -->
-                <a href="#" class="btn btn-primary btn-lg">Learn More</a>
-            </div>
+          </div>
+          <div class="aboutContent"> 
+            <h3> why choose us?</h3> 
+            <p>Welcome to Florentina, your premier destination for exquisite flower bouquets.  
+                At Florentina, we are passionate about creating beautiful arrangements for every occasion.  
+                Whether you're celebrating a special event or just want to brighten someone's day,  
+                we have a bouquet to suit your needs.</p> 
+            <p>Our dedicated team of floral designers uses only the freshest flowers to craft stunning  
+                arrangements that capture the essence of elegance and joy. We pride ourselves on exceptional customer  
+                service and attention to detail, ensuring that each bouquet is a true work of art.</p> 
+            <p>Thank you for choosing Florentina. We look forward to serving you and helping you  
+                celebrate life's moments with the beauty of flowers!</p> 
+                 <!-- Button to open the subscription popup --> 
+            <button id="openPopup" class="custom-btn">Subscribe</button> 
+            </div> 
+        </div> 
+    </section> 
+ 
+    <div id="popupForm" class="popup"> 
+      <div class="popup-content"> 
+          <span class="close">&times;</span> 
+          <h2>Subscribe to Our Newsletter</h2> 
+          <form> 
+            <label for="name">Name:</label> 
+              <input type="name" id="name" name="name" placeholder="Enter your name" required> 
+              <label for="email">Email:</label> 
+              <input type="email" id="email" name="email" placeholder="Enter your email" required> 
+              <button type="submit" class="btn btn-primary">Subscribe</button> 
+          </form> 
+      </div> 
+  </div> 
+ 
+  <script> 
+    // Get elements 
+    const popupForm = document.getElementById("popupForm"); 
+    const openPopup = document.getElementById("openPopup"); 
+    const closePopup = document.getElementsByClassName("close")[0]; 
+ 
+    // Show popup when "Subscribe" button is clicked 
+    openPopup.addEventListener("click", function() { 
+        popupForm.style.display = "flex"; // Use flex to center it 
+    }); 
+ 
+    // Close popup when "x" is clicked 
+    closePopup.addEventListener("click", function() { 
+        popupForm.style.display = "none"; 
+    }); 
+ 
+    // Close popup if the user clicks outside the form 
+    window.addEventListener("click", function(event) { 
+        if (event.target === popupForm) { 
+            popupForm.style.display = "none"; 
+        } 
+    }); 
+</script> 
+    <!-- about section ends -->
+
         </div>
     </section>
     <!-- about section ends -->
