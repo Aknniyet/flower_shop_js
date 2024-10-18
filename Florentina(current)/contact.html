@@ -118,14 +118,23 @@
               <input type="number" placeholder="Number" class ="box">
               <textarea name="" class="box" placeholder="Message" id="" cols="30" rows="10"> </textarea>
               <!-- <input type="submit" value= "send message" class="btn"> -->
-              <a href="#" class="btn btn-primary btn-lg">Send message</a>
+              <button id ="btn"> Send message </button>
+          
           </form>
+
+          <script type="text/javascript">
+            const audio = new Audio();
+            audio.src = "select-click.mp3";
+            document.getElementById('btn').addEventListener('click', function(event) {
+            event.preventDefault(); 
+            audio.play(); 
+    });
+          </script>
 
           <div class="image">
               <img src="images/contact1.jpg" alt="">
           </div>
       </div>
-
 
 
      <div class="accordion">
@@ -192,6 +201,7 @@
     </script>
 
     <!-- contact form with js -->
+
 <script>
   function validateForm(event) {
       event.preventDefault(); 
@@ -272,11 +282,6 @@
  <!-- contact form with js -->
  
     </section>
-
-
-
-
-
 
     <!-- contact section ends -->
 

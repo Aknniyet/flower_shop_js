@@ -129,7 +129,13 @@
             </div> 
         </div> 
     </section> 
- 
+    <script>
+    window.addEventListener('load', function() {
+      const aboutSection = document.querySelector('.about');
+      aboutSection.classList.add('visible'); // Добавляем класс "visible" после загрузки страницы
+  });
+  </script>
+  
     <div id="popupForm" class="popup"> 
       <div class="popup-content"> 
           <span class="close">&times;</span> 
@@ -144,30 +150,29 @@
       </div> 
   </div> 
  
-  <script> 
-    // Get elements 
-    const popupForm = document.getElementById("popupForm"); 
-    const openPopup = document.getElementById("openPopup"); 
-    const closePopup = document.getElementsByClassName("close")[0]; 
- 
-    // Show popup when "Subscribe" button is clicked 
-    openPopup.addEventListener("click", function() { 
-        popupForm.style.display = "flex"; // Use flex to center it 
-    }); 
- 
-    // Close popup when "x" is clicked 
-    closePopup.addEventListener("click", function() { 
-        popupForm.style.display = "none"; 
-    }); 
- 
-    // Close popup if the user clicks outside the form 
-    window.addEventListener("click", function(event) { 
-        if (event.target === popupForm) { 
-            popupForm.style.display = "none"; 
-        } 
-    }); 
-</script> 
-    <!-- about section ends -->
+  <script>
+     // Get elements 
+   const popupForm = document.getElementById("popupForm"); 
+   const openPopup = document.getElementById("openPopup"); 
+   const closePopup = document.getElementsByClassName("close")[0]; 
+
+   // Show popup when "Subscribe" button is clicked 
+   openPopup.addEventListener("click", function() { 
+       popupForm.style.display = "flex"; // Use flex to center it 
+   }); 
+
+   // Close popup when "x" is clicked 
+   closePopup.addEventListener("click", function() { 
+       popupForm.style.display = "none"; 
+   }); 
+
+   // Close popup if the user clicks outside the form 
+   window.addEventListener("click", function(event) { 
+       if (event.target === popupForm) { 
+           popupForm.style.display = "none"; 
+       } 
+   }); 
+  </script>
 
         </div>
     </section>
@@ -245,28 +250,25 @@
         <div class="footer-content">
           <p>Current Date and Time: <span id="date-time"></span></p>
       </div>
-
       <script>
-         function updateDateTime() {
-  const now = new Date();
-  const options = { 
-      month: 'long', 
-      day: 'numeric', 
-      year: 'numeric', 
-      hour: 'numeric', 
-      minute: 'numeric', 
-      second: 'numeric',  
-      hour12: true       
-  };
-  const formattedDateTime = now.toLocaleString('en-US', options);
-  document.getElementById('date-time').textContent = formattedDateTime;
-}
-
-updateDateTime();
-setInterval(updateDateTime, 1000);  // 1000 мс = 1 секунда
-
-
-      </script>
+        function updateDateTime() {
+    const now = new Date();
+    const options = { 
+        month: 'long', 
+        day: 'numeric', 
+        year: 'numeric', 
+        hour: 'numeric', 
+        minute: 'numeric', 
+        second: 'numeric',  
+        hour12: true       
+    };
+    const formattedDateTime = now.toLocaleString('en-US', options);
+    document.getElementById('date-time').textContent = formattedDateTime;
+  }
+  
+  updateDateTime();
+  setInterval(updateDateTime, 1000);
+  </script>
 
         <div class="credit">created by <span> Danel Kanbakova, Darina Kassymbek, Akniyet Muratbekkyzy</span></div>
 

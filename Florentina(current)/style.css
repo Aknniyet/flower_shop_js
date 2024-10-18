@@ -157,6 +157,10 @@ body {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
     height: 25%;
     object-fit: cover;
+    opacity: 0; /* Изначально скрыто */
+    transform: translateX(-30px); /* Сдвиг влево */
+    transition: opacity 1s ease /* Плавное появление с задержкой */
+
 }
 
 .about .row .image-container h3{
@@ -172,6 +176,10 @@ body {
 
 .about.row.aboutContent {
     flex: 1 1 40rem;
+    opacity: 0; /* Изначально скрыто */
+    transform: translateX(30px); /* Сдвиг вправо */
+    transition: opacity 0.5s ease;  /* Плавное появление с задержкой */
+
 }
 
 .about .row .aboutContent h3{
@@ -185,6 +193,27 @@ body {
     padding: .5rem 0;
     padding-top: 1rem;
     line-height: 1.5;
+}
+
+.aboutContent h3, 
+.aboutContent p, 
+.custom-btn {
+    opacity: 0;
+    transition: opacity 1s ease 0.5s, transform 1s ease 0.5s;
+}
+
+/* Анимации при добавлении класса visible */
+.about.visible .heading,
+.about.visible .image-container img,
+.about.visible .aboutContent {
+    opacity: 1;
+    transform: translateX(0); /* Возвращаем к исходному положению */
+}
+
+.about.visible .aboutContent h3,
+.about.visible .aboutContent p,
+.about.visible .custom-btn {
+    opacity: 1; /* Плавное появление текста и кнопки */
 }
 
 .home{
@@ -952,3 +981,25 @@ button:hover {
     color: var(--text-color-dark);
  }
  
+ .animatedElement {
+    transition: transform 0.5s ease-in-out;
+}
+.animatedElement:hover {
+    transform: scale(1.1);
+}
+
+#btn{
+    width: 150px;
+    height: 40px;
+    border-width: 4px;
+    border-radius: 35px;
+    font-size: 12px;
+    font-weight: bolder;
+    color: #fff;
+    cursor: pointer;
+    background-color: #007bff;
+}
+
+#btn:active{
+    font-size: 15px;
+}
